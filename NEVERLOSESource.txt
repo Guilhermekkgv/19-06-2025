@@ -1309,17 +1309,16 @@ function NEVERLOSE:AddWindow(NameScriptHub,Text,UICustomSize)
 				local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 				local UICorner = Instance.new("UICorner")
 				local LabelText = Instance.new("TextLabel")
-				local ValueBox = Instance.new("Frame")
+				local Box = Instance.new("Frame")
 				local UICorner_2 = Instance.new("UICorner")
 				local UIStroke = Instance.new("UIStroke")
 				local ValueText = Instance.new("TextLabel")
-				local SliderTrack = Instance.new("Frame")
+				local MoveFrame = Instance.new("Frame")
 				local UICorner_3 = Instance.new("UICorner")
-				local SliderFill = Instance.new("Frame")
+				local Inline = Instance.new("Frame")
 				local UICorner_4 = Instance.new("UICorner")
-				local SliderThumb = Instance.new("Frame")
+				local Cir = Instance.new("Frame")
 				local UICorner_5 = Instance.new("UICorner")
-				local UIStroke_2 = Instance.new("UIStroke")
 				local Frame = Instance.new("Frame")
 
 				Slider.Name = "Slider"
@@ -1346,8 +1345,8 @@ function NEVERLOSE:AddWindow(NameScriptHub,Text,UICustomSize)
 				LabelText.BackgroundTransparency = 1.000
 				LabelText.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				LabelText.BorderSizePixel = 0
-				LabelText.Position = UDim2.new(0.238462642, 0, 0.300000374, 0)
-				LabelText.Size = UDim2.new(0.477176398, 0, 0.4, 0)
+				LabelText.Position = UDim2.new(0.238462642, 0, 0.499999374, 0)
+				LabelText.Size = UDim2.new(0.477176398, 0, 0.75, 0)
 				LabelText.ZIndex = 6
 				LabelText.Font = Enum.Font.SourceSansSemibold
 				LabelText.Text = SliderNameString or "Control"
@@ -1358,27 +1357,27 @@ function NEVERLOSE:AddWindow(NameScriptHub,Text,UICustomSize)
 				LabelText.TextXAlignment = Enum.TextXAlignment.Left
 				LabelText.TextTransparency=.3
 
-				ValueBox.Name = "ValueBox"
-				ValueBox.Parent = Slider
-				ValueBox.AnchorPoint = Vector2.new(0, 0.5)
-				ValueBox.BackgroundColor3 = NEVERLOSE.Themes.ButtonBlackgroundColor
-				ValueBox.BackgroundTransparency = 0.100
-				ValueBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
-				ValueBox.BorderSizePixel = 0
-				ValueBox.Position = UDim2.new(0.800000012, 0, 0.30000037, 0)
-				ValueBox.Size = UDim2.new(0.150000006, 0, 0.35, 0)
-				ValueBox.ZIndex = 6
+				Box.Name = "Box"
+				Box.Parent = Slider
+				Box.AnchorPoint = Vector2.new(0, 0.5)
+				Box.BackgroundColor3 = NEVERLOSE.Themes.ButtonBlackgroundColor
+				Box.BackgroundTransparency = 0.100
+				Box.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Box.BorderSizePixel = 0
+				Box.Position = UDim2.new(0.800000012, 0, 0.5, 0)
+				Box.Size = UDim2.new(0.150000006, 0, 0.5, 0)
+				Box.ZIndex = 6
 
 				UICorner_2.CornerRadius = UDim.new(0, 3)
-				UICorner_2.Parent = ValueBox
+				UICorner_2.Parent = Box
 
 				UIStroke.Thickness = 0.500
 				UIStroke.Color = NEVERLOSE.Themes.StrokeColor
 				UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-				UIStroke.Parent = ValueBox
+				UIStroke.Parent = Box
 
 				ValueText.Name = "ValueText"
-				ValueText.Parent = ValueBox
+				ValueText.Parent = Box
 				ValueText.AnchorPoint = Vector2.new(0.5, 0.5)
 				ValueText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				ValueText.BackgroundTransparency = 1.000
@@ -1394,50 +1393,47 @@ function NEVERLOSE:AddWindow(NameScriptHub,Text,UICustomSize)
 				ValueText.TextSize = 14.000
 				ValueText.TextWrapped = true
 
-				SliderTrack.Name = "SliderTrack"
-				SliderTrack.Parent = Slider
-				SliderTrack.AnchorPoint = Vector2.new(0, 0.5)
-				SliderTrack.BackgroundColor3 = NEVERLOSE.Themes.MainColorDrop
-				SliderTrack.BorderColor3 = Color3.fromRGB(0, 0, 0)
-				SliderTrack.BorderSizePixel = 0
-				SliderTrack.ClipsDescendants = true
-				SliderTrack.Position = UDim2.new(0.050000841, 0, 0.75, 0)
-				SliderTrack.Size = UDim2.new(0.9, 0, 0.13, 0)
-				SliderTrack.ZIndex = 5
+				MoveFrame.Name = "MoveFrame"
+				MoveFrame.Parent = Slider
+				MoveFrame.AnchorPoint = Vector2.new(0, 0.5)
+				MoveFrame.BackgroundColor3 = NEVERLOSE.Themes.MainColorDrop
+				MoveFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				MoveFrame.BorderSizePixel = 0
+				MoveFrame.ClipsDescendants = true
+				MoveFrame.Position = UDim2.new(0.477050841, 0, 0.50000006, 0)
+				MoveFrame.Size = UDim2.new(0.290949076, 0, 0.099999994, 0)
+				MoveFrame.ZIndex = 5
 
-				UICorner_3.CornerRadius = UDim.new(0, 5)
-				UICorner_3.Parent = SliderTrack
+				UICorner_3.CornerRadius = UDim.new(0, 3)
+				UICorner_3.Parent = MoveFrame
 
-				SliderFill.Name = "SliderFill"
-				SliderFill.Parent = SliderTrack
-				SliderFill.AnchorPoint = Vector2.new(0, 0.5)
-				SliderFill.BackgroundColor3 = NEVERLOSE.Themes.MainColor
-				SliderFill.BorderColor3 = Color3.fromRGB(0, 0, 0)
-				SliderFill.BorderSizePixel = 0
-				SliderFill.Position = UDim2.new(0, 0, 0.5, 0)
-				SliderFill.Size = UDim2.new((Default-Min)/(Max-Min), 0, 1, 0)
-				SliderFill.ZIndex = 6
+				Inline.Name = "Inline"
+				Inline.Parent = MoveFrame
+				Inline.AnchorPoint = Vector2.new(0, 0.5)
+				Inline.BackgroundColor3 = NEVERLOSE.Themes.MainColor
+				Inline.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Inline.BorderSizePixel = 0
+				Inline.Position = UDim2.new(0, 0, 0.5, 0)
+				Inline.Size = UDim2.new((Default/Max), 0, 1, 0)
+				Inline.ZIndex = 5
 
-				UICorner_4.CornerRadius = UDim.new(0, 5)
-				UICorner_4.Parent = SliderFill
+				UICorner_4.CornerRadius = UDim.new(0, 3)
+				UICorner_4.Parent = Inline
 
-				SliderThumb.Name = "SliderThumb"
-				SliderThumb.Parent = SliderFill
-				SliderThumb.AnchorPoint = Vector2.new(0.5, 0.5)
-				SliderThumb.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				SliderThumb.BorderColor3 = Color3.fromRGB(0, 0, 0)
-				SliderThumb.BorderSizePixel = 0
-				SliderThumb.Position = UDim2.new(1, 0, 0.5, 0)
-				SliderThumb.Size = UDim2.new(0, 16, 0, 16)
-				SliderThumb.ZIndex = 7
+				Cir.Name = "Cir"
+				Cir.Parent = Inline
+				Cir.AnchorPoint = Vector2.new(1, 0.5)
+				Cir.BackgroundColor3 = NEVERLOSE.Themes.MainColor
+				Cir.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Cir.BorderSizePixel = 0
+				Cir.Position = UDim2.new(1, 0, 0.5, 0)
+				Cir.Rotation = 0.010
+				Cir.Size = UDim2.new(3, 0, 3, 0)
+				Cir.SizeConstraint = Enum.SizeConstraint.RelativeYY
+				Cir.ZIndex = 5
 
 				UICorner_5.CornerRadius = UDim.new(0.5, 0)
-				UICorner_5.Parent = SliderThumb
-
-				UIStroke_2.Thickness = 2
-				UIStroke_2.Color = NEVERLOSE.Themes.MainColor
-				UIStroke_2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-				UIStroke_2.Parent = SliderThumb
+				UICorner_5.Parent = Cir
 
 				Frame.Parent = Slider
 				Frame.AnchorPoint = Vector2.new(0, 0.5)
@@ -1445,187 +1441,59 @@ function NEVERLOSE:AddWindow(NameScriptHub,Text,UICustomSize)
 				Frame.BackgroundTransparency = 1.000
 				Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				Frame.BorderSizePixel = 0
-				Frame.Position = UDim2.new(0.050000841, 0, 0.75, 0)
-				Frame.Size = UDim2.new(0.9, 0, 0.5, 0)
-				Frame.ZIndex = 8
+				Frame.Position = UDim2.new(0.477050841, 0, 0.500000358, 0)
+				Frame.Size = UDim2.new(0.322948873, 0, 0.900000036, 0)
+				Frame.ZIndex = 5
 
-				local currentValue = Default
-				local dragging = false
-
-				local function updateSlider(newValue)
-					currentValue = math.clamp(newValue, Min, Max)
-					local percentage = (currentValue - Min) / (Max - Min)
-					
-					ValueText.Text = tostring(currentValue)
-					TweenService:Create(SliderFill, TweenInfo.new(0.1), {Size = UDim2.new(percentage, 0, 1, 0)}):Play()
-					
-					callback(currentValue)
-				end
+				local danger = false
 
 				local function update(Input)
-					local SizeScale = math.clamp((Input.Position.X - SliderTrack.AbsolutePosition.X) / SliderTrack.AbsoluteSize.X, 0, 1)
-					local newValue = math.floor(((Max - Min) * SizeScale) + Min)
-					updateSlider(newValue)
+					local SizeScale = math.clamp((((Input.Position.X) - MoveFrame.AbsolutePosition.X) / MoveFrame.AbsoluteSize.X), 0, 1)
+					local Valuea = math.floor(((Max - Min) * SizeScale) + Min)
+					local Size = UDim2.fromScale(math.clamp(SizeScale+0.15,0,1), 1)
+					ValueText.Text = tostring(Valuea)
+					TweenService:Create(Inline,TweenInfo.new(0.1),{Size = Size}):Play()
+					callback(Valuea)
 				end
 
 				Frame.InputBegan:Connect(function(Input)
 					if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
-						dragging = true
+						danger = true
 						update(Input)
 						TweenService:Create(LabelText,TweenInfo.new(0.1),{TextTransparency=0}):Play()
-						TweenService:Create(SliderThumb,TweenInfo.new(0.1),{Size=UDim2.new(0, 18, 0, 18)}):Play()
 					end
 				end)
 
 				Frame.InputEnded:Connect(function(Input)
 					if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
-						dragging = false
+						danger = false
 						TweenService:Create(LabelText,TweenInfo.new(0.1),{TextTransparency=0.3}):Play()
-						TweenService:Create(SliderThumb,TweenInfo.new(0.1),{Size=UDim2.new(0, 16, 0, 16)}):Play()
 					end
 				end)
 
 				InputService.InputChanged:Connect(function(Input)
-					if dragging then
-						if Input.UserInputType == Enum.UserInputType.MouseMovement or Input.UserInputType == Enum.UserInputType.Touch then
+					if danger then
+						if (Input.UserInputType==Enum.UserInputType.MouseMovement or Input.UserInputType==Enum.UserInputType.Touch)  then
 							update(Input)
 						end
 					end
 				end)
 
-				updateSlider(Default)
+				local func={}
 
-				local func = {}
+				function func:Value(s)
+					ValueText.Text = tostring(s)
+					Inline.Size=UDim2.fromScale((s/Max),1)
 
-				function func:Value(val)
-					updateSlider(val)
+					callback(s)
 				end
 
-				function func:Text(text)
-					LabelText.Text = tostring(text)
+				function func:Text(t)
+					LabelText.Text=tostring(t)
 				end
 
+				update_section_size()
 				return func
-			end
-
-			function sectionfunc:AddInput(InputName, Default, callback)
-				callback = callback or function() end
-				Default = Default or ""
-
-				local Input = Instance.new("Frame")
-				local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
-				local UICorner = Instance.new("UICorner")
-				local LabelText = Instance.new("TextLabel")
-				local InputBox = Instance.new("Frame")
-				local UICorner_2 = Instance.new("UICorner")
-				local UIStroke = Instance.new("UIStroke")
-				local TextBox = Instance.new("TextBox")
-
-				Input.Name = "Input"
-				Input.Parent = Section
-				Input.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				Input.BackgroundTransparency = 1.000
-				Input.BorderColor3 = Color3.fromRGB(0, 0, 0)
-				Input.BorderSizePixel = 0
-				Input.Position = UDim2.new(0.0500000231, 0, 0.601014614, 0)
-				Input.Size = UDim2.new(0.899999976, 0, -0.351014495, 0)
-				Input.ZIndex = 5
-
-				UIAspectRatioConstraint.Parent = Input
-				UIAspectRatioConstraint.AspectRatio = 7.000
-				UIAspectRatioConstraint.AspectType = Enum.AspectType.ScaleWithParentSize
-
-				UICorner.CornerRadius = UDim.new(0, 3)
-				UICorner.Parent = Input
-
-				LabelText.Name = "LabelText"
-				LabelText.Parent = Input
-				LabelText.AnchorPoint = Vector2.new(0.5, 0.5)
-				LabelText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				LabelText.BackgroundTransparency = 1.000
-				LabelText.BorderColor3 = Color3.fromRGB(0, 0, 0)
-				LabelText.BorderSizePixel = 0
-				LabelText.Position = UDim2.new(0.296666116, 0, 0.499999374, 0)
-				LabelText.Size = UDim2.new(0.593582511, 0, 0.75, 0)
-				LabelText.ZIndex = 6
-				LabelText.Font = Enum.Font.SourceSansSemibold
-				LabelText.Text = InputName or "Input"
-				LabelText.TextColor3 = Color3.fromRGB(255, 255, 255)
-				LabelText.TextScaled = true
-				LabelText.TextSize = 14.000
-				LabelText.TextWrapped = true
-				LabelText.TextXAlignment = Enum.TextXAlignment.Left
-				LabelText.TextTransparency = 0.3
-
-				InputBox.Name = "InputBox"
-				InputBox.Parent = Input
-				InputBox.AnchorPoint = Vector2.new(1, 0.5)
-				InputBox.BackgroundColor3 = NEVERLOSE.Themes.ButtonBlackgroundColor
-				InputBox.BackgroundTransparency = 0.100
-				InputBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
-				InputBox.BorderSizePixel = 0
-				InputBox.Position = UDim2.new(0.950000167, 0, 0.500000715, 0)
-				InputBox.Size = UDim2.new(0.45, 0, 0.65, 0)
-				InputBox.ZIndex = 6
-
-				UICorner_2.CornerRadius = UDim.new(0, 3)
-				UICorner_2.Parent = InputBox
-
-				UIStroke.Thickness = 0.500
-				UIStroke.Color = NEVERLOSE.Themes.StrokeColor
-				UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-				UIStroke.Parent = InputBox
-
-				TextBox.Name = "TextBox"
-				TextBox.Parent = InputBox
-				TextBox.AnchorPoint = Vector2.new(0.5, 0.5)
-				TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				TextBox.BackgroundTransparency = 1.000
-				TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
-				TextBox.BorderSizePixel = 0
-				TextBox.Position = UDim2.new(0.5, 0, 0.5, 0)
-				TextBox.Size = UDim2.new(0.95, 0, 0.8, 0)
-				TextBox.ZIndex = 7
-				TextBox.Font = Enum.Font.SourceSansSemibold
-				TextBox.Text = Default
-				TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-				TextBox.TextScaled = true
-				TextBox.TextSize = 14.000
-				TextBox.TextWrapped = true
-				TextBox.PlaceholderText = "Enter text..."
-				TextBox.PlaceholderColor3 = Color3.fromRGB(170, 170, 170)
-				TextBox.ClearTextOnFocus = false
-
-				TextBox.Focused:Connect(function()
-					TweenService:Create(LabelText, TweenInfo.new(0.1), {TextTransparency = 0}):Play()
-					TweenService:Create(UIStroke, TweenInfo.new(0.1), {Color = NEVERLOSE.Themes.MainColor}):Play()
-				end)
-
-				TextBox.FocusLost:Connect(function(enterPressed)
-					TweenService:Create(LabelText, TweenInfo.new(0.1), {TextTransparency = 0.3}):Play()
-					TweenService:Create(UIStroke, TweenInfo.new(0.1), {Color = NEVERLOSE.Themes.StrokeColor}):Play()
-					
-					if enterPressed then
-						callback(TextBox.Text)
-					end
-				end)
-
-				local inputFunc = {}
-
-				function inputFunc:Text(text)
-					LabelText.Text = tostring(text)
-				end
-
-				function inputFunc:Value(value)
-					TextBox.Text = tostring(value)
-					callback(TextBox.Text)
-				end
-
-				function inputFunc:Get()
-					return TextBox.Text
-				end
-
-				return inputFunc
 			end
 
 			function sectionfunc:AddDropdown(DropdownName,data,Default,callback)
@@ -2331,7 +2199,8 @@ function NEVERLOSE:Notification()
 		BodyTitle.TextScaled = true
 		BodyTitle.TextSize = 14.000
 		BodyTitle.TextTransparency = 1
-		BodyTitle.TextWra
+		BodyTitle.TextWrapped = true
+		BodyTitle.TextXAlignment = Enum.TextXAlignment.Left
 
 		Countdown.Name = "Countdown"
 		Countdown.Parent = Notify
